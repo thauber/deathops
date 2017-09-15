@@ -31,6 +31,8 @@ def insert_events(evts):
         evt['id'] = str(uuid.uuid1())
         fout.write(json.dumps(evt) + '\n')
         fout.flush()
+        if evt.get('context'):
+            evt['context'] = json.dumps(evt['context'])
 
     for i in xrange(10):
         try:
