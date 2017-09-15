@@ -57,7 +57,7 @@ def event():
     if request.json:
         evt = dict(request.json)
         gevent.spawn(services.analytics.insert_events, [evt])
-    return Response(u'ok', 200)
+    return Response(u'ok\n', 200)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

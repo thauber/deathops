@@ -10,6 +10,8 @@ REPOPATH="$(pwd)"
 REPOPATH="$(dirname $REPOPATH)"
 popd > /dev/null
 
+sudo apt-get install python-virtualenv
+
 sudo rm -fR /deathops/ve /deathops/src
 
 sudo mkdir -p /deathops/data /deathops/etc /deathops/log /deathops/run
@@ -31,3 +33,5 @@ sudo chown -R root:root /deathops/run
 sudo cp $REPOPATH/init/supervisord.service /lib/systemd/system/supervisord.service
 sudo systemctl enable supervisord
 fi
+
+echo "Done."
