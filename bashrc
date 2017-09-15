@@ -1,6 +1,6 @@
 # source this from your .bashrc for fun
 
-alias super='sudo /opt/dve/bin/supervisorctl -c /opt/etc/supervisord.conf'
+alias super='sudo /deathops/ve/bin/supervisorctl -c /deathops/src/init/supervisord.conf -s unix:///deathops/run/supervisord.sock'
 alias dve='source /deathops/ve/bin/activate'
 
 export PYTHONIOENCODING="utf-8"

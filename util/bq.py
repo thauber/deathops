@@ -8,13 +8,15 @@ from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.service_account import ServiceAccountCredentials
 
+from util.context import ctx
+
 log = logging.getLogger(__name__)
 
 
 def get_service():
     svc, ts = getattr(ctx, 'google_bigquery_v2', (None, None))
     if not svc or (time.time() - ts > 30.0):
-        credentials = ServiceAccountCredentials.from_json_keyfile_name('/deathops/etc/bq.json')
+        credentials = ServiceAccountCredentials.from_json_keyfile_name('/deathops/etc/db.json')
         svc = build('bigquery', 'v2', credentials=credentials, cache_discovery=False)
         ctx.google_bigquery_v2 = (svc, time.time())
     return svc

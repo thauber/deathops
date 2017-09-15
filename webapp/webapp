@@ -1,4 +1,5 @@
 #!/bin/bash
 
-echo hi
-sleep 600
+export PYTHONPATH="/deathops/src"
+
+exec /deathops/ve/bin/gunicorn -c gconfig.py $* main:app

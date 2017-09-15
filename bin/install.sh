@@ -10,7 +10,7 @@ REPOPATH="$(pwd)"
 REPOPATH="$(dirname $REPOPATH)"
 popd > /dev/null
 
-rm -fR /deathops/ve /deathops/src
+sudo rm -fR /deathops/ve /deathops/src
 
 sudo mkdir -p /deathops/data /deathops/etc /deathops/log /deathops/run
 
@@ -24,8 +24,10 @@ ls -l $REPOPATH/requirements.in
 /deathops/ve/bin/pip install -r $REPOPATH/requirements.txt
 
 if [ "$(uname)" != "Darwin" ]; then
-sudo adduser --disabled-password --gecos "" deathops
+sudo adduser --disabled-password --gecos "" deathops || true
 echo "deathops:$(uuidgen)" | sudo chpasswd
+sudo chown -R deathops:deathops /deathops
+sudo chown -R root:root /deathops/run
 sudo cp $REPOPATH/init/supervisord.service /lib/systemd/system/supervisord.service
 sudo systemctl enable supervisord
 fi
