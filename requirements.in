@@ -1,0 +1,8 @@
+flask
+gevent
+google-api-python-client
+gunicorn
+pip-tools
+requests
+supervisor
+supervisor-wildcards

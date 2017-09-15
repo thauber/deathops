@@ -1,0 +1,12 @@
+[Unit]
+Description=supervisord
+Documentation=man:supervisord(1)
+
+[Service]
+Type=simple
+Environment=
+ExecStartPre=
+ExecStart=/bin/bash -c 'source /deathops/ve/bin/activate; ulimit -n 1000000 -u 500000; exec /deathops/ve/bin/supervisord -n -c /deathops/src/init/supervisord.conf &>> /deathops/log/supervisord-systemd.log'
+
+[Install]
+WantedBy=multi-user.target

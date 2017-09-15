@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo /deathops/ve/bin/supervisord -c /deathops/src/init/supervisord.conf $*
