@@ -4,6 +4,7 @@
 Run bin/install.sh
 
 # gclodu service account key for BQ access
+gsutil cp gs://deathops-scratch/deathball-e3067788addd.json .  # or use console
 cp deathball-e3067788addd.json /deathball/etc/db.json
 
 # start supervisord, this runs the webapp
