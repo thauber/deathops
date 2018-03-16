@@ -32,6 +32,19 @@ sudo chown -R deathops:deathops /deathops
 sudo chown -R root:root /deathops/run
 sudo cp $REPOPATH/init/supervisord.service /lib/systemd/system/supervisord.service
 sudo systemctl enable supervisord
+sudo -u deathops ssh-keygen -f /home/deathops/.sh/charons-obol_rsa -N ""
+ssh-copy-id -i ~/.ssh/mykey riverstyx@thauber.com
 fi
+
+sudo apt-get install openssh-server
+sudo apt-get install autossh
+sudo adduser --disabled-password --gecos "" charon || true
+sudo -u charon ssh-keygen
+sudo cp $REPOPATH/init/charon.service /lib/systemd/system/charon.service
+sudo systemctl enable charon
+
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+gcloud init
 
 echo "Done."

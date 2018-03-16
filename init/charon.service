@@ -1,0 +1,10 @@
+[Unit]
+Description=AutoSSH reverse tunnel service for jump.you.io 100022 -> 22
+
+[Service]
+Environment="AUTOSSH_GATETIME=0"
+Environment="
+ExecStart=sudo -u charon /usr/bin/autossh -M 10000 -N -f -o "PubkeyAuthentication=yes" -o "PasswordAuthentication=no" -i /home/deathops/.ssh/charons-obol_rsa -R 2222:localhost:22 riverstyx@thauber.com &
+
+[Install]
+WantedBy=multi-user.target
