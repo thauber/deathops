@@ -38,8 +38,13 @@ sudo adduser --disabled-password --gecos "" charon || true
 sudo -u charon ssh-keygen -f /home/charon/.ssh/obol_rsa -N ""
 sudo ssh-copy-id -i /home/charon/.ssh/obol_rsa riverstyx@thauber.com
 
-curl https://sdk.cloud.google.com | bash
-exec -l $SHELL
+mkdir /home/deathball/gcp
+
+curl https://sdk.cloud.google.com -o /home/deathball/gcp/install.sh
+echo "Google Cloud Platform Downloaded."
+/home/deathball/gcp/install.sh
+echo "Google Cloud Platform Installed."
 gcloud init
+echo "Google Cloud Platform Initialized."
 
 echo "Done."
