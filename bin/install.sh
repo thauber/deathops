@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -eo pipefail
-
 USER="$(id -un)"
 GRP="$(id -gn)"
 
