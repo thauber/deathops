@@ -32,7 +32,7 @@ sudo chown -R deathops:deathops /deathops
 sudo chown -R root:root /deathops/run
 sudo cp $REPOPATH/init/supervisord.service /lib/systemd/system/supervisord.service
 sudo systemctl enable supervisord
-sudo -u deathops ssh-keygen -f /home/deathops/.sh/charons-obol_rsa -N ""
+sudo -u deathops ssh-keygen -f /home/deathops/.ssh/charons-obol_rsa -N ""
 ssh-copy-id -i ~/.ssh/mykey riverstyx@thauber.com
 fi
 
