@@ -42,7 +42,8 @@ mkdir /home/deathball/gcp
 
 curl https://sdk.cloud.google.com -o /home/deathball/gcp/install.sh
 echo "Google Cloud Platform Downloaded."
-/home/deathball/gcp/install.sh
+chmod +x /home/deathball/gcp/install.sh
+sudo /home/deathball/gcp/install.sh
 echo "Google Cloud Platform Installed."
 gcloud init
 echo "Google Cloud Platform Initialized."
